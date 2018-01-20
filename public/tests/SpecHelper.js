@@ -16,7 +16,7 @@ function resetFixture() {
   if (!fixture) {
     var index = $('<div>').append(loadFixture('/index.html'));
     var markup = index.find('div.markup');
-    fixture = $('<div class="fixture" style="display: none">').append(markup);
+    fixture = $('<div class="fixture" style="display: none;">').append(markup);
     $('body').append(fixture.clone());
   } else {
     $('.fixture').replaceWith(fixture.clone());

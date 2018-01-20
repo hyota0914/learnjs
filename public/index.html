@@ -9,17 +9,109 @@
     <script src='https://code.jquery.com/jquery-2.1.4.min.js'></script>
     <script src='/vendor.js'></script>
     <script src='/app.js'></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="786824255194-o73s6c761hf90q3dr9p2r6m52777t72c.apps.googleusercontent.com" />
     <style type="text/css" media="all">
-      body { margin-top: 30px; }
+      body { margin-top: 60px; }
+      .templates { display: none; }
+      .inline-list {
+        margin-bottom: 0px; /* Skelton reset */
+      }
+      .inline-list li {
+        display: inline;
+        margin: 0 20px 0 0;
+      }
+      .fixed-top {
+        position: fixed;
+        top: 0px;
+        z-index: 1024;
+      }
+      .no-select {
+        user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        -moz-user-select: none;
+      }
+      .hover-links a { text-decoration: none; }
+      .hover-links a:hover { text-decoration: underline; }
+      .nav-container {
+        padding-left: 40px;
+        background: #666;
+      }
+      .nav-container a {color: white; }
+      .text-lg { font-size: 32px; }
+      .navbar-padding {
+        padding-top: 7px;
+        display: inline-block;
+      }
+      .navbar-padding-lg {
+        padding-top: 12px;
+        display: inline-block;
+      }
     </style>
   </head>
   <body>
-    <div class='container'>
-      <h1>It works!</h1>
-      <div>
-        <span>You're ready to start!</span>
-        <span>Skeleton 2, jQuery 2, and AWS Libraries are included.</span>
+    <div class='markup'>
+      <div class="nav-container no-select fixed-top u-full-width">
+        <ul class='inline-list hover-links nav-list six columns'>
+          <li><a class='text-lg' href="#">LearnJS</a></li>
+          <li><a href="#problem-1">Start</a></li>
+        </ul>
+        <div class="four columns signin-bar">
+          <span class="navbar-padding u-pull-right">
+            <span class="g-signin2" data-onsuccess="googleSignIn"></span>
+          </span>
+        </div>
+      </div>
+      <div class='view-container container'>
+      </div>
+      <div class='templates'>
+        <!-- problem-view -->
+        <div class='problem-view'>
+          <h3 class='title'></h3>
+          <p data-name='description'></p>
+          <pre><code data-name='code'></code></pre>
+          <form>
+            <textarea class='u-full-width answer'></textarea>
+            <div>
+              <button class='button-primary check-btn'>Check Answer</button>
+              <p class='result'></p>
+            </div>
+          </form>
+        </div>
+        <!-- correct-flash -->
+        <div class="correct-flash">
+          <span>Correct!</span>
+          <a>Next Problem</a>
+        </div>
+        <!-- landing-view -->
+        <div class='landing-view'>
+          <div class='row'>
+            <div class='one-half column'>
+              <h3>Learn JavaScript, one puzzle at a time.</h3>
+              <a href="#problem-1" class='button button-primary'>Start Now!</a>
+            </div>
+            <div class='one-half column'>
+              <img src="/images/HeroImage.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+        <!-- skip-btn -->
+        <li class='skip-btn'>
+          <a>Skip This Problem</a>
+        </li>
+        <div class="profile-view">
+          <h3>Your Profile</h3>
+          <dif class="email"></dif>
+        </div>
+        <div class="profile-link navbar-padding-lg">
+          <a href="#profile"></a>
+        </div>
+        <!-- END OF templates -->
       </div>
     </div>
+    <script type='text/javascript'>
+      $(window).ready(learnjs.appOnReady);
+    </script>
   </body>
 </html>
